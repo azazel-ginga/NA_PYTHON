@@ -1,0 +1,9 @@
+admin:admin
+admin:123
+sa:1234
+sah1:123456
+root:123
+root:1234567
+sa:sa
+administrator:123
+root:123456
