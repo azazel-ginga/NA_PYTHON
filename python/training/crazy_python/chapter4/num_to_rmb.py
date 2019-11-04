@@ -21,45 +21,93 @@ class Numtormb(object):
 	def __init__(self,num):
 		self.num = num
 		self.integer = 0
-		self.float = 0
+		self.fraction = 0
+		self.strfloat = ""
+		self.han_list = ['零','壹','贰','叁','肆','伍','陆','柒','捌','玖']
+		self.unit_list = ['拾','百','千']
 
 	def __divide(self):
 		self.integer = int(self.num)
-		self.float = self.num - self.integer
+		self.fraction = self.num - self.integer
 
 
+	def __four_integer_convert(self,integer):
+		result = ''
+		strinteger = str(integer)
+		num_len = len(strinteger)
 
-	def __handlenum(self):
-		self.__divide()
 
-		#handling the decimals part
-		strfloat = str(self.float)
-		if len(str(strfloat)) > 4:
-			self.float = round(self.float,2)
-			strfloat = str(self.float)
-			strfloat = strfloat[2] + '角' + strfloat[3] + '分'
-		elif len(str(strfloat)) == 1:
-			strfloat = '0角' + '0分'
-		elif len(str(strfloat)) == 3:
-			strfloat = str(self.float)
-			strfloat = strfloat[2] + '角' + '0分' 
+        #两位数处理
+		for i in range(num_len):
+			num = int(strinteger[i])
+			if num_len <= 2:
+				if num_len < 2: 
+					result = self.han_list[num]
+				elif num_len == 2 and int(self.integer) == 10:
+					result = self.unit_list[0]
+				else:
+					result = result + self.han_list[num] + self.unit_list[0]
 
-		#handling the integer part
+		#三位数处理
+			elif i != num_len - 1 and num != 0:
+				result = result + self.han_list[num] + self.unit_list[num_len - 2 - i]
+			else:
+				if (int(strinteger[i])) == 0 and (int(strinteger[i - 1])) == 0 and (int(strinteger[num_len - 1])) == 0:
+					pass
+				elif int(strinteger[i]) == 0 and int(strinteger[i - 1]) == 0 and i == num_len - 1:
+					pass
+				elif int(strinteger[i]) == 0 and int(strinteger[i - 1]) == 0 and (i != num_len - 1):
+					pass
+				elif (int(strinteger[i])) == 0 and (int(strinteger[num_len - 1])) != 0:
+					result = result + self.han_list[num]
+				elif ((int(strinteger[i - 1])) == 0) and (int(strinteger[num_len - 1])) != 0:
+					result = result + self.han_list[num]
+				elif int(strinteger[i]) != 0:
+					result = result + self.han_list[num]
+
+		
+		if((len(result) == 4) and (num_len == 2)):
+			return result[0:3]
+		else:
+			return result
+
+	def __connect_num(self):
+	
 		strinteger = str(self.integer)
-		if len(strinteger) >= 0 and len(strinteger) <= 4:
-			strinteger = strinteger + '元'
-		elif len(strinteger) > 4 and len(strinteger) <=8:
-			strinteger = strinteger + '万'
-		elif len(strinteger) > 5 and len(strinteger) <=12:
-			strinteger = strinteger + '亿'
+		if len(strinteger) <= 4:
+			result = self.__four_integer_convert(self.integer)
+			return result + '元'
 
-		return strinteger + strfloat
+		if len(strinteger) > 4 and len(strinteger) <= 8:
+			num_len = len(strinteger) 
+			return self.__four_integer_convert(int(strinteger[:-4])) + '万' + self.__four_integer_convert(int(strinteger[-4:]))
+
+
+
+
+
+
+
+
+
 
 	def outputform(self):
-		print(self.__handlenum())
+		self.__divide()
+		return self.__connect_num()
 
 
-n1 = Numtormb(111111111111.01)
-n1.outputform()
+
+
+
+d1 = Numtormb(10001111)
+print(d1.outputform())
+
+
+
+
+
+
+
+
 
 
