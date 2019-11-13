@@ -47,7 +47,6 @@ class Numtormb(object):
 					result = self.unit_list[0]
 				else:
 					result = result + self.han_list[num] + self.unit_list[0]
-
 		#三位数处理
 			elif i != num_len - 1 and num != 0:
 				result = result + self.han_list[num] + self.unit_list[num_len - 2 - i]
@@ -65,29 +64,55 @@ class Numtormb(object):
 				elif int(strinteger[i]) != 0:
 					result = result + self.han_list[num]
 
-		
 		if((len(result) == 4) and (num_len == 2)):
 			return result[0:3]
 		else:
 			return result
 
+
 	def __connect_num(self):
 	
 		strinteger = str(self.integer)
+		result = ''
 		if len(strinteger) <= 4:
 			result = self.__four_integer_convert(self.integer)
 			return result + '元'
 
-		if len(strinteger) > 4 and len(strinteger) <= 8:
-			num_len = len(strinteger) 
-			return self.__four_integer_convert(int(strinteger[:-4])) + '万' + self.__four_integer_convert(int(strinteger[-4:]))
+		if len(strinteger) == 5:
+			if(int(strinteger[1]) == 0 or int(strinteger[2]) == 0 or int(strinteger[3]) == 0) and int(strinteger[4]) != 0:
+				result = self.__four_integer_convert(int(strinteger[:-4])) + '万'+ '零' + self.__four_integer_convert(int(strinteger[-4:]))
+			elif (int(strinteger[1]) == 0) and int(strinteger[4]) == 0:
+				result = self.__four_integer_convert(int(strinteger[:-4])) + '万'+ '零' + self.__four_integer_convert(int(strinteger[-4:]))
+			else:
+				result = self.__four_integer_convert(int(strinteger[:-4])) + '万' + self.__four_integer_convert(int(strinteger[-4:]))
 
+			if len(result) == 3:
+				return result[0:2]
+			if len(result) == 6 and int(strinteger[4]) == 0:
+				return result[0:5]
+			else:
+				return result 
 
+		if len(strinteger) == 6:
+			pass
 
+		if len(strinteger) == 7:
+			pass
 
+		if len(strinteger) == 8:
+			pass
 
+		if len(strinteger) == 9:
+			pass
 
+		if len(strinteger) == 10:
+			pass
 
+		if len(strinteger) == 11:
+			pass
+
+		if len(strinteger) == 12:
+			pass
 
 
 
@@ -97,9 +122,7 @@ class Numtormb(object):
 
 
 
-
-
-d1 = Numtormb(10001111)
+d1 = Numtormb(10101)
 print(d1.outputform())
 
 

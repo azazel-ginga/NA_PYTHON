@@ -4,4 +4,4 @@ def stars():
 			print("*",end = "")
 		print("\r")
 
-stars()s
+stars()
