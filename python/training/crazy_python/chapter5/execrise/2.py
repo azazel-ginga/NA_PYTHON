@@ -25,7 +25,7 @@ class bubblesort(object):
     def printout(self):
         print(self.__bubblesortf())
 
-lista = [4,3,1,2,5]
+lista = [4,3,1,2,5,10]
 b1 = bubblesort(lista)
 b1.printout()
 
