@@ -51,7 +51,7 @@ class ClassTest(object):
 
     # 这里我用到魔术方法__new__，主要是为了在创建实例的时候调用累加方法。
     def __new__(cls):
-        ClassTest.addNum()
+        ClassTest.addNum()  
         return super().__new__(cls)
 
     '''

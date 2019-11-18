@@ -88,7 +88,8 @@ print(s1.name)#s1
 print(s2.name)#s2
 print(s3.name)#报错：AttributeError: 'Student' object has no attribute 'name'
  
-注意：与python2相比MethodType()只接收两个参数，即去掉了所属类的参数。也就没有为全部实例绑定该方法的情况了
+注意：与python2相比MethodType()只接收两个参数，即去掉了所属类的参数。
+也就没有为全部实例绑定该方法的情况了
 
 （2）把方法绑定到类中（情况只有一种了，如上面python2的没有None参数）
 
