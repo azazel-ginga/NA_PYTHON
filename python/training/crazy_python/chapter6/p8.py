@@ -39,9 +39,9 @@ u.age = 28
 print(u.age)
 print(u.name)
 
-#u.__hide()                           #尝试调用__hide()方法会产生报错AttributeError: 'User' object has no attribute '__hide'
+#u.__hide()      #尝试调用__hide()方法会产生报错AttributeError: 'User' object has no attribute '__hide'
 
-u._User__hide()                       #调用隐藏的__hide()的方法
+u._User__hide()  #调用隐藏的__hide()的方法
 '''
 通过上面的调用可以看出，python并没有真正的实现隐藏
 总结：python并没有真正的提供隐藏机制，所以我们可以说PYTHON默认所有成员默认都是公开的

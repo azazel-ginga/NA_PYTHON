@@ -12,8 +12,9 @@ class Product(object):
     def info(self):
         print("Product中的方法" + "这是一个工业产品")
 
-class Mouse(Item,Product):                #继承时，哪个父类在前就调用哪个方法
-    pass
+ #继承时，哪个父类在前就调用哪个方法
+class Mouse(Item,Product):
+	pass
 
 i = Item()
 i.info()

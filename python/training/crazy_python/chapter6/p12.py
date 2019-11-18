@@ -25,9 +25,16 @@ class SubClass(BaseClass):
 
         #直接执行foo方法，将会调用子类重写之后的foo()方法
         self.foo()
+       
 
         #使用类名调用实例方法（未绑定方法）调用父类被重写的方法
-        BaseClass.foo(self)
+        #未绑定方法对象，需要传递一个实例
+        #未绑定方法调用1
+        x = BaseClass()
+        BaseClass.foo(x)
+
+        #未绑定方法调用2
+        #BaseClass.foo(self)
 
 sc = SubClass()
 sc.bar()
