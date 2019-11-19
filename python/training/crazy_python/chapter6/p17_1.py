@@ -20,7 +20,7 @@ class ItemMetaClass(type):
 		return type.__new__(cls,name,bases,attrs)
 
 '''
-上面程序定义了一个ItemMetaClass类，该类继承了type类，并重写了__new__方法，在重写该方法时为目标类动态
+上面程序定义了一个ItemMetasClass类，该类继承了type类，并重写了__new__方法，在重写该方法时为目标类动态
 添加了一个cal_price方法。
 
 ------------------------------------------------------------------------------------------
