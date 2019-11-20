@@ -1,6 +1,7 @@
 #coding=utf-8
 '''
-编写一个学生类，提供name、age、gender、phone、address、email等属性。为学生提供带所有成员变量的构造器，为学生提供方法，用于描绘吃、喝、玩、乐
+编写一个学生类，提供name、age、gender、phone、address、email等属性。
+为学生提供带所有成员变量的构造器，为学生提供方法，用于描绘吃、喝、玩、乐
 '''
 
 class Classroom(object):
@@ -16,15 +17,19 @@ class Classroom(object):
 
     def __new__(cls):
         Classroom.addnum()
-        return super().__new__(cls)
+        return super(Classroom,cls).__new__(cls)
 
 class Student(Classroom):
-    def __init__(self):
-        self.name = ''
-        self.gender = ''
-        self.phone = ''
-        self.address = ''
-        self.email = ''
+
+    def __init__(self,name,gender,phone,address,email):
+        self.name = name
+        self.gender = gender
+        self.phone = phone
+        self.address = address
+        self.email = email
+
+    def __new__(cls,name,gender,phone,address,email):
+        return super(Student,cls).__new__(cls)
 
 
     @property
@@ -33,7 +38,7 @@ class Student(Classroom):
 
     @inputname.setter
     def inputname(self,name):
-        if is_number(name):
+        if name.isdigit():
             print('The name can not contain number!')
         else:
             self.name = name
@@ -48,13 +53,15 @@ class Student(Classroom):
         else:
             print('Please input "FEMALE" or "MALE"')
 
-    gender = property(getgender,setgender)
+    inputgender = property(getgender,setgender)
 
-
-s1 = Student()
+s1 = Student('aaa','MALE','13815060645','FuMingRoad296','103258937@qq.com')
 s1.inputname = 'AAA'
-s1.gender = 'MALE'
-#s2 = Student()
+print(s1.inputname)
+s1.inputgender = 'MALE'
+print(s1.inputgender)
+print(s1.phone)
+s2 = Student('aaa','MALE','13815060645','FuMingRoad296','103258937@qq.com')
 print(Classroom.getnum())
 
 
