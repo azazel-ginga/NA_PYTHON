@@ -54,14 +54,18 @@ class Student(Classroom):
             print('Please input "FEMALE" or "MALE"')
 
     inputgender = property(getgender,setgender)
+    
+    def eat(self):
+        pass
+    
+    def drink(self):
+        pass
+    
+    def play(self):
+        pass
+    
 
 s1 = Student('aaa','MALE','13815060645','FuMingRoad296','103258937@qq.com')
-s1.inputname = 'AAA'
-print(s1.inputname)
-s1.inputgender = 'MALE'
-print(s1.inputgender)
-print(s1.phone)
-s2 = Student('aaa','MALE','13815060645','FuMingRoad296','103258937@qq.com')
-print(Classroom.getnum())
+s2 = Student('bbb','FEMALE','13815060600','FuMingRoad211','183491819@qq.com')
 
 
