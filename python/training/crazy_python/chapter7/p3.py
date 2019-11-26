@@ -23,5 +23,6 @@ def foo():
 		print(e.args)
 		print(e.errno)
 		print(e.strerror)
+		print(e.with_traceback)
 
 foo()
