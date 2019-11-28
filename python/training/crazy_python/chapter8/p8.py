@@ -52,7 +52,7 @@ class StringSeq(object):
 		self.__deleted = []
 
 	def __len__(self):
-		return 26 ** 3
+		return 26 ** 3    #26的三次方
 
 	def __getitem__(self,key):
 		'''
@@ -79,7 +79,7 @@ class StringSeq(object):
 		'''
 		check_key(key)
 		#将修改的元素以key-value对的形式保存在__changed中
-		self.__changed[key]
+		self.__changed[key] = value
 
 	def __delitem__(self,key):
 		'''
@@ -88,9 +88,24 @@ class StringSeq(object):
 
 		check_key(key)
 		#如果__deleted列表中没有包含被删除的key,则添加被删除的key
-		if key not in self.__delitem__:
+		if key not in self.__deleted:
 			self.__deleted.append(key)
 		#如果__changed中包含被删除的key,则删除它
 		if key in self.__changed:
 			del self.__changed[key]
 
+
+#创建一个序列
+sq = StringSeq()
+#获取序列的长度，实际上就是__len__()方法的返回值
+print(len(sq))
+#打印序列sq[0]的值
+print(sq[0])    #AAA
+#修改元素sq[1]的值
+sq[1] = 'fkit'
+#删除sq[1]
+del sq[1]
+print(sq[1]) #None
+#再次对sq[1]赋值
+sq[1] = 'crazyit'
+print(sq[1]) #crazyit
