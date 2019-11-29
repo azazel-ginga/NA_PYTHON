@@ -35,8 +35,9 @@ class Fibs(object):
 		if self.__len == 0:
 			raise StopIteration
 		#完成数学计算
-		self.first ,self.sec = self.sec,self.first + self.sec   #这种写法，Python先计算等号的右边(self.first+self.sec)赋值给self.sec
-															    #再将self.sec赋值给self.first
+		self.first ,self.sec = self.sec,self.first + self.sec  
+		 #这种写法，Python先计算等号的右边(self.first+self.sec)赋值给self.sec
+		 #再将self.sec赋值给self.first
 
 		#数列长度减1
 		self.__len = self.__len - 1
@@ -48,8 +49,14 @@ class Fibs(object):
 #创建Fibs对象
 fibs = Fibs(10)
 #获取迭代器的下一个元素
-#print(next(fibs))
+print(next(fibs))     #next()函数其实就是通过__next__方法来实现的
 
 #使用for循环遍历迭代器
 for el in fibs:
 	print(el)
+
+
+'''
+程序开始使用内置的next()函数来获取迭代器的下一个元素，该next()函数其实就是通过迭代器的
+__next__方法来实现的。
+'''
