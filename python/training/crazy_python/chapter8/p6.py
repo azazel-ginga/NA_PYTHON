@@ -56,4 +56,4 @@ c.info()
 #settar函数还可以将info()方法设置成普通值，这样会把info变成一个属性，而不是方法
 #将c的info设置为字符串'fkit'
 setattr(c,'info','fkit')
-c.info()                   #这里代码会提示TypeError: 'str' object is not callable错误，因为info方法变成了属性。
+c.info()                 #这里代码会提示TypeError: 'str' object is not callable错误，因为info方法变成了属性。

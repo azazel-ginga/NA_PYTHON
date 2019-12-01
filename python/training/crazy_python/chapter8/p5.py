@@ -36,7 +36,7 @@ rect = Rectangle(3,5)
 
 print(rect.size)                 #触发__getattr__()方法
 
-rect.size = 10                   #触发__getattr__()方法
+rect.size = 10                   #触发__setattr__()方法
 
 print(rect.size)
 
