@@ -3,6 +3,14 @@
 '''
 __contains__():当使用in，not in 对象的时候 
 调用(not in 是在in完成后再取反,实际上还是in操作)
+
+Python 3 中字典(Dictionary)has_key()函数变为 __contains__(key)，用法一样:
+
+dict = {'Name':'coco','Sex':'Female'}  # 定义字典
+print(dict.__contains__('Name'))   # True
+
+
+
 '''
 
 class A(object):  
