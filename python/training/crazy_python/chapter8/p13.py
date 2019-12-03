@@ -50,7 +50,7 @@ class Rectangle(object):
 			raise TypeError('==比较要求目标是Rectangle')
 		return True if self.width * self.height == other.width * other.height else False
 
-	#定义__ge__方法，该对象可支持"=="和"!="比较
+	#定义__ge__方法，该对象可支持">="和"<="比较
 	def __ge__(self,other):
 		#要求参与">="比较的另一个操作数必须是Rectangle
 		if not isinstance(other,Rectangle):

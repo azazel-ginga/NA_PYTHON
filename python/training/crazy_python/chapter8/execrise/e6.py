@@ -22,3 +22,6 @@ def listfile(path = './'):
 
 l = listfile()
 
+print(next(l))
+print(next(l))
+print(next(l))
