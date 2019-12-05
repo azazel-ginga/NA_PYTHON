@@ -7,6 +7,8 @@
 简单的模块，该模块包含以下内容
 my_list:保存列表的变量
 print_triangle:打印由星号组成的三角函数
+
+以上的注释如果要以__doc__的方式打印，必须进入python解释器才可以，不是使用python解释器，必须要定义__doc__属性。
 '''
 
 my_list = ['Python','Kotlin','Swift']
