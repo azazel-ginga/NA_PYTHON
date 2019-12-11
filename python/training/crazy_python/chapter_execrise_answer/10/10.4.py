@@ -23,4 +23,3 @@ while True:
     if m2:
         print(m2.group())
 
-    

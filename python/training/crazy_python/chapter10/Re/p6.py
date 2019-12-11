@@ -25,7 +25,7 @@ print(re.split(',','fkit,fkjava,crazyit',1))
 
 
 #使用a进行分割
-print(re.split('a','fkit,fkjava,crazyit'))
+print(re.split('a','fkit,fkjazyait'))
 #输出:['fkit,fkj', 'v', ',cr', 'zyit']
 
 #使用x进行分割,没有匹配内容，则不会执行分割

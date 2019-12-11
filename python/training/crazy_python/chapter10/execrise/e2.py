@@ -30,8 +30,10 @@ class stringcheck(object):
 
 
 
-s = stringcheck('111111,1..1,1.1')
+s = stringcheck('111111,1..1,1.11111111,1,1')
 print(s.str_split())
+
+
 
 
 
