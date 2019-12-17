@@ -67,8 +67,7 @@ class ClassTest(object):
 
 
 class Student(ClassTest):
-    def __init__(self):
-        self.name = ''
+    pass
 
 a = Student()
 b = Student()

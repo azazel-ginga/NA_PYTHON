@@ -14,8 +14,8 @@ class Student(object):
  
 def set_name(self, name):
     self.name = name
-（1）把方法绑定到类的实例中：
 
+（1）把方法绑定到类的实例中：
 s1 = Student()
 s2 = Student()
 s3 = Student()
@@ -29,8 +29,8 @@ s2.set_name('s2')
 print(s1.name)#s1
 print(s2.name)#s2
 print(s3.name)#报错:'Student' object has no attribute 'name'
-（2）把方法绑定到类中（无None参数）
 
+（2）把方法绑定到类中（无None参数）
 s1 = Student()
 s2 = Student()
 s3 = Student()
@@ -46,7 +46,6 @@ MethodType把方法绑定在类上并且没有None参数时，通过该类创建
 相当于Java或C++中的static方法，导致后面s2实例的值会覆盖前面s1实例的值，即使s3没有使用该方法也会带上s2值。
 
 （3）把方法绑定到类中（有第二个参数None）
-
 s1 = Student()
 s2 = Student()
 s3 = Student()
@@ -73,26 +72,25 @@ class Student(object):
  
 def set_name(self, name):
     self.name = name
-（1）把方法绑定到类的实例中：
 
+
+（1）把方法绑定到类的实例中：
 s1 = Student()
 s2 = Student()
 s3 = Student()
 #分别给s1和s2实例绑定此方法
-s1.set_name = MethodType(set_name, s1)#跟2版本相比变成两个参数，即去掉了后面的所属类参数
+s1.set_name = MethodType(set_name, s1)           #跟2版本相比变成两个参数，即去掉了后面的所属类参数
 s2.set_name = MethodType(set_name, s2)
- 
+#输出
 s1.set_name('s1')
 s2.set_name('s2')
 print(s1.name)#s1
 print(s2.name)#s2
 print(s3.name)#报错：AttributeError: 'Student' object has no attribute 'name'
- 
 注意：与python2相比MethodType()只接收两个参数，即去掉了所属类的参数。
 也就没有为全部实例绑定该方法的情况了
 
 （2）把方法绑定到类中（情况只有一种了，如上面python2的没有None参数）
-
 s1 = Student()
 s2 = Student()
 s3 = Student()
@@ -100,13 +98,13 @@ s3 = Student()
 Student.set_name = MethodType(set_name,Student)
 s1.set_name('s1')
 s2.set_name('s2')
- 
+#输出
 print(s1.name)#s2
 print(s2.name)#s2
 print(s3.name)#s2
-如果类本身也有其它设置name属性的方法呢？
------------------------------------------------------------
 
+
+如果类本身也有其它设置name属性的方法呢？
 把公共部分改成如下：
 
 class Student(object):
@@ -121,14 +119,12 @@ def set_name(self, name):
 s1 = Student()
 s2 = Student()
 s3 = Student()
-
 #将方法绑定到类中
 Student.set_name = MethodType(set_name,Student)
- 
 s1.set_name_self('s1_self')
 s2.set_name('s2')
 s2.set_name_self('s2_self')
- 
+#输出
 print(s1.name)#s1_self
 print(s2.name)#s2_self
 print(s3.name)#s2

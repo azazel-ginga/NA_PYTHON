@@ -9,11 +9,11 @@
 
 class Bird:
     def fly(self):
-        print("我在天空自由自在的飞翔")
+    	print("我在天空自由自在的飞翔")
 
 class Ostrich(Bird):
     def fly(self):                      #重写父类中的fly方法
-        print("我只能在地上跑")
+       print("我只能在地上跑")
 
 os = Ostrich()
 os.fly()                                #输出我只能在地上奔跑

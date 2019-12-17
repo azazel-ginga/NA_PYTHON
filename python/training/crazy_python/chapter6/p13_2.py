@@ -36,6 +36,7 @@ class Manager(Employee,Customer):
         Customer.__init__(self,favorite,address)
 
 
+
 m = Manager(25000,'IT产品','广州')
 m.work()
 m.info()

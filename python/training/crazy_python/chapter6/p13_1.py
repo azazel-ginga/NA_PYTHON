@@ -27,7 +27,7 @@ class Manager(Employee,Customer):
 
 m = Manager(25000)
 m.work()     #1
-m.info()     #2
+#m.info()     #2
 
 '''
 在上面的程序中，Manager类将会优先使用Employee类的构造方法(因为在继承时候Employee排在前面)，所以在程序使用Manager(250000)来创建Manager对象时，该构造方法

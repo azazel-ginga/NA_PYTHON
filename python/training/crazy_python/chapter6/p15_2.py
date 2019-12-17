@@ -24,10 +24,10 @@ class TimeTest(object):
         return time.strftime("%H:%M:%S", time.localtime())
 
 
-print(TimeTest.showTime())
-#t = TimeTest(2, 10, 10)
-#nowTime = t.showTime()
-#print(nowTime)
+#print(TimeTest.showTime())
+t = TimeTest(2, 10, 10)
+nowTime = t.showTime()
+print(nowTime)
 
 
 '''

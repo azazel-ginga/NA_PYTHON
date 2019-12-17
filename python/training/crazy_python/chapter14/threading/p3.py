@@ -58,7 +58,8 @@ CPU独自运行，所以CPU需要在多个线程之间切换，于是线程状�
 线程死亡
 线程以如下三种方式结束，结束后就处于死亡状态
 1.run()方法或代表线程执行体的target函数执行完成，线程正常结束。
-2.线程抛出一个未捕获的Exception或Error
+2.线程抛出一个未捕获的Exception
+3.线程抛出一个Error
 
 ***当主线程结束时，其他线程不受任何影响，并不会随之结束。一旦子线程启动起来后，它就拥有和主线程相同的地位，它不会受主
 线程的影响。
@@ -72,3 +73,33 @@ CPU独自运行，所以CPU需要在多个线程之间切换，于是线程状�
 
 #下面程序尝试对处于死亡状态下的线程再次调用start()方法
 import threading
+
+#定义action函数准备作为线程执行使用
+
+def action(max):
+	for i in range(max):
+		print(threading.current_thread().name + " " + str(i))
+#创建线程对象
+sd = threading.Thread(target=action,args=(100,))
+for i in range(300):
+	#调用threading.current_thread()函数获取当前线程
+	print(threading.current_thread().name + " " + str(i))
+	if i == 20:
+		#启动线程
+		sd.start()
+		#判断线程启动后是否存活，使用is_alive()的值来判断，输出True
+		print(sd.is_alive())
+
+#当线程处于新建、死亡两种状态时，is_alive()方法返回False
+#当i > 20时，该线程肯定已经启动过了，如果sd.is_alive()为False
+#那么就处于死亡状态了
+if i > 20 and not(sd.is_alive()):
+	#试图再次开启线程
+	sd.start()
+
+'''
+运行上面的程序将会引发一个RuntimeError异常，这表明处于死亡状态的线程无法再次运行
+
+***不要对处于死亡状态的线程调用start()方法，程序只能对处于新建状态的线程调用start()方法
+对处于新建状态的线程两次调用start()方法也是错误的。它们都会引发RuntimeError异常。
+'''
