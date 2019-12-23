@@ -20,7 +20,7 @@ class MyThread(threading.Thread):
 
 	def __init__(self,name):
 		#使用未绑定方法调用父类的构造方法
-		super().__init__(name)
+		super().__init__()
 		
 		self.name = name
 		
