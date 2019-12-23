@@ -22,7 +22,7 @@ def draw(account,draw_amount):
 	if account.balance >= draw_amount:
 		#吐出钞票
 		print(threading.current_thread().name + "取钱成功！提出钞票:" + str(draw_amount))
-		#time.sleep(0.01)
+		time.sleep(0.01)
 		#修改余额
 		account.balance -= draw_amount
 		print("\t余额为:" + str(account.balance))

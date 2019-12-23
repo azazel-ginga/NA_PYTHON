@@ -33,6 +33,7 @@ with ThreadPoolExecutor(max_workers=2) as pool:
 	future1 = pool.submit(action,50)
 	#向线程池中再提交一个任务，100会作为action()函数的参数
 	future2 = pool.submit(action,100)
+	
 	def get_result(future):
 		print(future.result())
 	#为future1.add_done_callback(get_result)
