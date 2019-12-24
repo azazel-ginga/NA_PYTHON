@@ -4,8 +4,9 @@ import threading
 import time
 
 class A:
-	def __init__(self):elf.lock = threading.RLock()
-		s
+	def __init__(self):
+		self.lock = threading.RLock()
+
 	def foo(self,b):
 		try:
 			self.lock.acquire()
