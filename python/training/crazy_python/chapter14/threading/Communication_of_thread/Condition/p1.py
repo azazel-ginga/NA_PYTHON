@@ -17,12 +17,12 @@ class Producer(threading.Thread):
         global num
         con.acquire()
         while True:
-            print "开始添加！！！"
+            print ("开始添加！！！")
             num += 1
-            print "火锅里面鱼丸个数：%s" % str(num)
+            print ("火锅里面鱼丸个数：%s" % str(num))
             time.sleep(1)
             if num >= 5:
-                print "火锅里面里面鱼丸数量已经到达5个，无法添加了！"
+                print ("火锅里面里面鱼丸数量已经到达5个，无法添加了！")
                 # 唤醒等待的线程
                 con.notify()  # 唤醒小伙伴开吃啦
                 # 等待通知
@@ -39,12 +39,12 @@ class Consumers(threading.Thread):
         con.acquire()
         global num
         while True:
-            print "开始吃啦！！！"
+            print ("开始吃啦！！！")
             num -= 1
-            print "火锅里面剩余鱼丸数量：%s" %str(num)
-            #time.sleep(2)
+            print ("火锅里面剩余鱼丸数量：%s" %str(num))
+            time.sleep(2)
             if num <= 0:
-                print "锅底没货了，赶紧加鱼丸吧！"
+                print ("锅底没货了，赶紧加鱼丸吧！")
                 con.notify()  # 唤醒其它线程
                 # 等待通知
                 con.wait()
@@ -52,5 +52,5 @@ class Consumers(threading.Thread):
 
 p = Producer()
 c = Consumers()
-p.start()
 c.start()
+p.start()

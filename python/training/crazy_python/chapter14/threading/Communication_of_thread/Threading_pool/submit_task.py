@@ -12,7 +12,6 @@ import time
 
 
 #定义一个准备作为线程任务的函数
-
 def action(max):
 	my_sum = 0
 	for i in range(max):
