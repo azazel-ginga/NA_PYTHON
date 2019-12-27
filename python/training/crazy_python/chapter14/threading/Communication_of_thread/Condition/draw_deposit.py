@@ -26,10 +26,10 @@ def deposit_many(account,deposit_amount,times):
 acct = Account.Account("user1",0)
 
 #创建并启动一个"取钱"线程
-threading.Thread(name = "取钱者",target=draw_many,args=(acct,800,100)).start()
+threading.Thread(name = "取钱者",target=draw_many,args=(acct,800,3)).start()
 
 #创建并启动一个"存款"线程
-threading.Thread(name = "存款者甲",target=deposit_many,args=(acct,800,100)).start()
+threading.Thread(name = "存款者甲",target=deposit_many,args=(acct,800,3)).start()
 #threading.Thread(name = "存款者乙",target=deposit_many,args=(acct,800,100)).start()
 #threading.Thread(name = "存款者丙",target=deposit_many,args=(acct,800,100)).start()
 

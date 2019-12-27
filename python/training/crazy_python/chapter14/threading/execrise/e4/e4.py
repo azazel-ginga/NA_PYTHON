@@ -56,12 +56,12 @@ class Vmuseum(object):
         self.cond.acquire()
         if self.flag:
             self.cond.wait()
-        else:
-            if self.f_enter_num <= self.all_people:
-                self.f_enter_num += 1
-                print("Now enter visiting member is %d,enter %d person" % (self.f_enter_num,1))
-                self.flag = True
-                self.cond.notify()
+      
+        if self.f_enter_num <= self.all_people:
+            self.f_enter_num += 1
+            print("Now enter visiting member is %d,enter %d person" % (self.f_enter_num,1))
+            self.flag = True
+            self.cond.notify()
 
         self.cond.release()
 
@@ -79,12 +79,12 @@ class Vmuseum(object):
         self.cond.acquire()
         if not self.flag:
             self.cond.wait()
-        else:
-            if self.enter_num >= 0:
-                self.enter_num  -= 1
-                print("Now exit visiting member is %d,exit %d person" % (self.enter_num,1))
-                self.flag = False
-                self.cond.notify()
+        
+        if self.enter_num >= 0:
+            self.enter_num  -= 1
+            print("Now exit visiting member is %d,exit %d person" % (self.enter_num,1))
+            self.flag = False
+            self.cond.notify()
 
         self.cond.release()
 
@@ -99,8 +99,8 @@ def exit(times):
     for i in range(times):
         vm.exit()
 
-threading.Thread(target=enter,args=(399,)).start()
-threading.Thread(target=exit,args=(399,)).start()
+threading.Thread(target=enter,args=(200,)).start()
+threading.Thread(target=exit,args=(200,)).start()
 
 
 
