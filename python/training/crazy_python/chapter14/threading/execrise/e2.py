@@ -62,12 +62,17 @@ class Mythread(object):
 th = Mythread()
 
 
-for i in range(26):
-	t1 = threading.Thread(target=th.Pnumber,args=())
-	t1.start()
+def Pnumber(times):
+	for i in range(times):
+		th.Pnumber()
 
-	t2 = threading.Thread(target=th.Pleg,args=())
-	t2.start()
 
+def Pleg(times):
+	for i in range(times):
+		th.Pleg()
+
+
+threading.Thread(target=Pnumber,args=(51,)).start()
+threading.Thread(target=Pleg,args=(51,)).start()
 
 
